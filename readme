@@ -1,0 +1,24 @@
+crate the app
+
+run the app and test
+
+then run below command :  <<< give docker imave name
+gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/your-app  >> this will crate docker image and push to gcr
+
+Run the below command to upload this to cloud run (replace bucket name, and project name)
+gcloud run deploy your-app \
+  --image gcr.io/YOUR_PROJECT_ID/your-app \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --set-env-vars BUCKET_NAME=your-bucket-name  << bucket name
+
+Need DAG bucket , AIRFLOW UI, DAG 
+
+Use DAG file , clou_run_trigger_dag.py
+in DAG file replace the endpoint with cloud run URL
+
+Now upload this file to composer in DAG folder
+
+run DAG
+
