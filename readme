@@ -41,3 +41,7 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 docker tag myapp:latest \
   us-central1-docker.pkg.dev/my-gcp-project/my-artifact-repo/myapp:latest
 
+@app.route('/', methods=['POST'])
+def trigger():
+    run()  # Call your function
+    return "Success", 200
