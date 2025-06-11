@@ -45,3 +45,7 @@ docker tag myapp:latest \
 def trigger():
     run()  # Call your function
     return "Success", 200
+
+curl -X POST https://your-app-xyz.a.run.app \
+  -H "Authorization: Bearer $(gcloud auth print-identity-token)"
+
